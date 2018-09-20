@@ -130,3 +130,33 @@ a:hover {
 .centerText {
     text-align: center;
 }
+
+.profilHeader {
+    width: 100%;
+    height: 150px;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.profilText {
+    font-size: 40px;
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+    background: rgba(0,0,0,0.3);
+    padding: 0px 10px;
+}
+
+.profilBox {
+    border: 1px solid var(--main-border-color);
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.profilKlick {
+    color: white;
+}
