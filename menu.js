@@ -54,7 +54,34 @@ $(document).ready(function () {
 
 });
 
+function validering() {
+
+    var fornamn = document.getElementById('fnamn').value;
+    var efternamn = document.getElementById('enamn').value;
+    var telefon = document.getElementById('telnr').value;
+    var meddelande = document.getElementById('med').value;
+    var validerad = true;
+    
+    if (!/^[a-ö]{3,10}$/i.test(fornamn)) {
+        alert('Vänligen skriv in ditt förnamn, minst 3 bokstäver!');
+        validerad = false;
+    }
+    if (!/^[a-ö]{3,10}$/i.test(efternamn)) {
+        alert('Vänligen skriv in ditt efternamn, minst 3 bokstäver!');
+        validerad = false;
+    }
+    if (!/^[0-9]{5,12}$/i.test(telefon)) {
+        alert('Vänligen skriv in ditt telefonnummer!');
+        validerad = false;
+    }
+    if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
+        alert('Vänligen skriv in ditt meddelande!');
+        validerad = false;
+    }
+    return validerad;
+};
 
 
 
 
+ 
