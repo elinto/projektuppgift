@@ -40,5 +40,20 @@ a:hover {
 
 .contentContainer {
     padding: 10px;
+    position: relative;
+    
+}
+
+#bildSpel {
+    width: 200px;
+    position: absolute;
+    left:20%;
+}
+
+.pauseK {
+    position: absolute;
+    width: 30px;
+    margin-top: 150px;
+    left: 47%
     
 }
