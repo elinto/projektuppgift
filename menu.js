@@ -26,14 +26,30 @@ function visaBild() {
 
     }
 }
+var bildspelIntervalId = null;
+
 function startaBildspel() {
-    setInterval(visaBild, 2000);
-
+    visaBild();
+    bildspelIntervalId = setInterval(visaBild, 2000);
 }
 
-document.getElementsByClassName("pauseK").addEventListener("click", myFunction);
-function myFunction(){
-
+function stopBildspel(){
+    clearInterval(bildspelIntervalId);
+    bildspelIntervalId = null;
 }
+
+function toggleBildspel(){
+    var toggleKnapp = document.getElementById("pauseKnapp");
+    if(bildspelIntervalId){
+        stopBildspel();
+        toggleKnapp.setAttribute("src", "bilder/play.png");
+    } else {
+        startaBildspel();
+        toggleKnapp.setAttribute("src", "bilder/pause.png");
+    }
+}
+
+document.getElementById("pauseKnapp").addEventListener("click", toggleBildspel);
+
 
 
