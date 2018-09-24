@@ -51,8 +51,16 @@ $(document).ready(function () {
     //$("#pauseKnapp").click(function () {
     //    toggleBildspel();
     //});
+    
 
 });
+
+
+
+
+
+
+
 
 function validering() {
 
@@ -81,6 +89,8 @@ function validering() {
     return validerad;
 };
 
+ 
+
 
 
 // Här testar jag lite med fetch-grejen....
@@ -91,5 +101,23 @@ function validering() {
     // Here's a list of repos!
 //    console.log(data)
 //  });
+
+ //Alexanra:
+ 
+function progress() {
+    var elem = document.getElementById('Bar'); 
+    var width = 10;
+    var id = setInterval(bars, 60); //tiden
+    function bars() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
 
  

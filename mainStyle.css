@@ -175,3 +175,23 @@ a:hover {
     border-radius: 10px;
     color: white;
 }
+
+
+#progressBar {
+    width: 80%;
+    background-color:#e7e7e7;
+    border-radius: 30px;
+}
+  
+#Bar {
+ 
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+    
+  }
+  
