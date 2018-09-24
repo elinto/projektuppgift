@@ -91,9 +91,6 @@ function validering() {
 
  
 
-
-
-
  //Alexanra:
  
 function progress() {

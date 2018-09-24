@@ -184,7 +184,7 @@ a:hover {
 }
   
 #Bar {
- 
+    max-width:80%;
     height: 20px;
     background-color: rgb(132, 209, 125);
     text-align: center;
