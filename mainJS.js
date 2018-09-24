@@ -52,7 +52,7 @@ $(document).ready(function () {
     //    toggleBildspel();
     //});
     
-    
+
 });
 
 
@@ -88,19 +88,6 @@ function validering() {
     }
     return validerad;
 };
-
- 
-
-
-
-// Här testar jag lite med fetch-grejen....
-
-//fetch('vad ska det vara för länk här inne?')
-//  .then(response => response.json())
-//  .then(data => {
-    // Here's a list of repos!
-//    console.log(data)
-//  });
 
  //Alexanra:
  
