@@ -108,7 +108,7 @@ function progress() {
     }
   };
 
-  //hej jag
+  //hej jag hej
   
 
 
