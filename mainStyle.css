@@ -281,3 +281,31 @@ a:hover {
     text-align: center;
     padding: 1em;
   }
+#Bild1{
+      width:50%;
+      border-style:double;
+      position: relative;
+      left: 25%;
+    }
+#bild2{
+      width:50%;
+      border-style:double;
+      position: relative;
+      left: 25%;
+}
+#bild3{
+    width:50%;
+    border-style:double;
+    position: relative;
+    left: 25%;
+}
+#bild4{
+    width:50%;
+    border-style:double;
+    position: relative;
+    left: 25%;
+}
+#beskrivning1{
+    text-align: center;
+    padding: 1em;
+}
