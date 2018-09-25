@@ -248,3 +248,31 @@ a:hover {
     border-radius: 30px;
     font-weight: 900;
   }
+
+  #BarJava3 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
+#BarCss3 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
+#BarHtml3 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
