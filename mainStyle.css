@@ -48,6 +48,7 @@ a:hover {
     position: relative;
 }
 
+
 #bildSpel {
     width: 100%;
 }
@@ -159,23 +160,6 @@ a:hover {
 .profilKlick {
     color: white;
 }
-
-.progressbar {
-    background-color: rgb(236, 232, 232);
-    border-radius: 13px;
-    /* (height of inner div) / 2 + padding */
-    padding: 3px;
-}
-
-.progressbar div {
-    background-color: green;
-    width: 40%;
-    /* Adjust with JavaScript */
-    height: 20px;
-    border-radius: 10px;
-    color: white;
-}
-
 
 #progressBar {
     width: 80%;
