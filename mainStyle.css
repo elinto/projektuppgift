@@ -194,3 +194,61 @@ a:hover {
     border-radius: 30px;
     font-weight: 900;
   }
+
+
+  .progressbar {
+    background-color: rgb(236, 232, 232);
+    border-radius: 13px;
+    /* (height of inner div) / 2 + padding */
+    padding: 3px;
+}
+
+.progressbar div {
+    background-color: green;
+    width: 40%;
+    /* Adjust with JavaScript */
+    height: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+#progressBar {
+    width: 80%;
+    background-color:#e7e7e7;
+    border-radius: 30px;
+}
+
+/* Susannes kod */
+
+#BarJava2 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
+
+
+  
+
+#BarCss2 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
+#BarHtml2 {
+    height: 20px;
+    background-color: rgb(132, 209, 125);
+    text-align: center;
+    line-height: 25px;
+    color: rgb(150, 147, 147);
+    border-radius: 30px;
+    font-weight: 900;
+  }
