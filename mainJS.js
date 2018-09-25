@@ -92,13 +92,12 @@ function validering() {
  
 
  //Alexanra:
- 
-function progress() {
-    var elem = document.getElementById('Bar'); 
+ function progress() {
+    var elem = document.getElementById('BarJava'); 
     var width = 10;
     var id = setInterval(bars, 60); //tiden
     function bars() {
-      if (width >= 100) {
+      if (width >= 65) {
         clearInterval(id);
       } else {
         width++; 
@@ -108,6 +107,35 @@ function progress() {
     }
   };
 
+  function progress1() {
+    var elem = document.getElementById('BarHtml'); 
+    var width = 10;
+    var id = setInterval(bars, 60); //tiden
+    function bars() {
+      if (width >= 95) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
+  function progress2() {
+    var elem = document.getElementById('BarCss'); 
+    var width = 10;
+    var id = setInterval(bars,60 ); //tiden
+    function bars() {
+      if (width >= 75) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
   //hej jag hej
   
 
