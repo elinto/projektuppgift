@@ -199,4 +199,52 @@ document.getElementById('fnamn').addEventListener("keyup", function(){
       }
     }
   };
+
+  //Elin kod
+
+  function progress7() {
+    var elem = document.getElementById('BarJava3'); 
+    var width = 10;
+    var id = setInterval(bars, 20); //tiden
+    function bars() {
+      if (width >= 45) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
+  function progress8() {
+    var elem = document.getElementById('BarHtml3'); 
+    var width = 10;
+    var id = setInterval(bars, 20); //tiden
+    function bars() {
+      if (width >= 75) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
+  function progress9() {
+    var elem = document.getElementById('BarCss3'); 
+    var width = 10;
+    var id = setInterval(bars,20 ); //tiden
+    function bars() {
+      if (width >= 95) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
  
