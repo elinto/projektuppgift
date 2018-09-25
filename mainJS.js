@@ -108,7 +108,8 @@ function progress() {
     }
   };
 
-  //hej
+  //hej jag
+  
 
 
  
