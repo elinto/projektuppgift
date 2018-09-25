@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 
-<body>
+<body onload="progress7(), progress8(), progress9()">
     <div class="headerImage">
         <div class="headerText">Projektets namn</div>
         <div class="menuMobileIcon">
@@ -35,29 +35,45 @@
         </ul>
     </div>
     <div class="contentContainer">
+        <div class="profilBox">
+            <div class="profilHeader" style="background-image:url('bilder/yay.jpg');">
+                <div class="profilText">Elin</div>
+            </div>
+        </div>
+
+        <h3>Programmeringskunskaper</h3>
+
+        <p>Java</p>
+        <div id="progressBar">
+            <div id="BarJava3">
+                <p>0%</p>
+            </div>
+        </div>
+        <p>Html</p>
+        <div id="progressBar">
+            <div id="BarHtml3">
+                <p>0%</p>
+            </div>
+        </div>
+        <p>Css</p>
+        <div id="progressBar">
+            <div id="BarCss3">
+                <p>0%</p>
+            </div>
+        </div>
         
-    <img class="personligBild" src="bilder/fakeelin.jpg" />
+        <h3>Beskrivande text</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam maximus arcu quis mattis. Nulla
+            urna
+            est, feugiat vitae purus ultrices, lobortis mattis tortor. Pellentesque bibendum vitae quam ut sodales.
+            Donec
+            aliquam non odio in tincidunt. Nunc facilisis ullamcorper sapien. Nunc eros augue, maximus ac vulputate in,
+            gravida eget enim. Cras nec lectus elit. In blandit libero at leo consectetur, a fringilla neque fermentum.
+        </p>
 
-    <h1>Elins profil</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam maximus arcu quis mattis. Nulla urna
-        est, feugiat vitae purus ultrices, lobortis mattis tortor. Pellentesque bibendum vitae quam ut sodales. Donec
-        aliquam non odio in tincidunt. Nunc facilisis ullamcorper sapien. Nunc eros augue, maximus ac vulputate in,
-        gravida eget enim. Cras nec lectus elit. In blandit libero at leo consectetur, a fringilla neque fermentum.
-    </p>
 
-    <p>
-        Integer quis tincidunt purus, et varius nibh. Aliquam dapibus augue ac ligula viverra sagittis. Class
-        aptent
-        taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In ornare erat interdum sem
-        tincidunt sollicitudin. In eget dolor ornare, molestie est a, imperdiet velit. Fusce elit magna, fringilla
-        id
-        magna id, interdum tincidunt ligula. Nunc dictum elit eu metus finibus, eu pharetra massa tempor.
-    </p>
-    
-    <div class="progressbar">
-        <div><span >20%</span></div>
-    </div>
+
 
     </div>
 

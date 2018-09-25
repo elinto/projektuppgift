@@ -89,13 +89,27 @@ function validering() {
     return validerad;
 };
 
+document.getElementById('fnamn').addEventListener("keyup", function(){
+    $('#errorMessageFnamn').css('visibility', 'hidden');
+    var fornamn = document.getElementById('fnamn').value;
+    if (!/^[a-ö]{3,10}$/i.test(fornamn)) {
+        document.getElementById('fnamn').style.borderColor = "red";
+        $('#errorMessageFnamn').css('visibility', 'show');
+        
+    } else {
+        document.getElementById('fnamn').style.borderColor = "green";
+        $('#errorMessageFnamn').css('visibility', 'hidden');
+    }
+
+ })
+
  
 
  //Alexanra:
  function progress() {
     var elem = document.getElementById('BarJava'); 
     var width = 10;
-    var id = setInterval(bars, 60); //tiden
+    var id = setInterval(bars, 20); //tiden
     function bars() {
       if (width >= 65) {
         clearInterval(id);
@@ -110,7 +124,7 @@ function validering() {
   function progress1() {
     var elem = document.getElementById('BarHtml'); 
     var width = 10;
-    var id = setInterval(bars, 60); //tiden
+    var id = setInterval(bars, 20); //tiden
     function bars() {
       if (width >= 95) {
         clearInterval(id);
@@ -125,7 +139,7 @@ function validering() {
   function progress2() {
     var elem = document.getElementById('BarCss'); 
     var width = 10;
-    var id = setInterval(bars,60 ); //tiden
+    var id = setInterval(bars,20 ); //tiden
     function bars() {
       if (width >= 75) {
         clearInterval(id);
@@ -139,5 +153,5 @@ function validering() {
   //hej jag hej
   
 
-
+  
  
