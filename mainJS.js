@@ -154,4 +154,49 @@ document.getElementById('fnamn').addEventListener("keyup", function(){
   
 
   
+  //Susannes koood
+  function progress4() {
+    var elem = document.getElementById('BarJava2'); 
+    var width = 10;
+    var id = setInterval(bars, 20); //tiden
+    function bars() {
+      if (width >= 75) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
+  function progress5() {
+    var elem = document.getElementById('BarHtml2'); 
+    var width = 10;
+    var id = setInterval(bars, 20); //tiden
+    function bars() {
+      if (width >= 95) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
+
+  function progress6() {
+    var elem = document.getElementById('BarCss2'); 
+    var width = 10;
+    var id = setInterval(bars,20 ); //tiden
+    function bars() {
+      if (width >= 85) {
+        clearInterval(id);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  };
  
