@@ -308,3 +308,11 @@ a:hover {
     text-align: center;
     padding: 1em;
 }
+
+.textboxerror {
+    outline: red auto 5px;
+}
+
+.textboxerror:focus {
+    outline: red auto 5px;
+}

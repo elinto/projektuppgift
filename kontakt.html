@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="mainStyle.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <meta charset="UTF-8">
+
 </head>
 
 <body>
@@ -37,14 +39,19 @@
     <div class="contentContainer">
         Kontakt
 
-        <form  onchange="validering()">
-            <br>Förnamn:<input id="fnamn" type="text"{3,15}/><br>
-            <div id="errorMessageFnamn">Skriv in minst två bokstäver</div>
-            <br>Efternamn:<input id="enamn" type="text"/><br>
-            <br>Telenr:<input id="telnr" type="number"/><br>
+        <form onsubmit="return validering();">
+            <br>Förnamn:<input id="fnamn" type="text" /> <br>
+            <div id="errorMessageFnamn">
+                Vänligen skriv in minst tre bokstäver
+            </div>
+            <br>Efternamn:<input id="enamn" type="text" /><br>
+            <div id="errorMessageEnamn">
+                Vänligen skriv in minst tre bokstäver
+            </div>
+            <br>Telenr:<input id="telnr" type="number" /><br>
             <br>Ditt meddelande:<textarea id="med" cols="30" rows="8"></textarea><br>
-            <br>Epost:<input id="epost" type="email"/><br>
-            <br><input type="submit" value="Skicka meddelande"/><br>
+            <br>Epost:<input id="epost" type="email" /><br>
+            <br><input type="submit" value="Skicka meddelande" /><br>
         </form>
     </div>
     <script src="mainJS.js"></script>
