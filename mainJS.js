@@ -5,13 +5,13 @@ $(document).ready(function () {
   .then(data => {
     var repos = data.items;
     
-    for(var i = 0; i < 3; i++){
-    	var repo = repos[i];
-    	alert(repo.name);
+    for(var i = 0; i < 5; i++){
+      var repo = repos[i];
+      $(".reposcontainer").append("<p>"+repo.name+"</p>")
     }
     
   });
-  
+
     $(".menuMobileIcon").click(function () {
         $(".menuContainer").show(200);
     });
