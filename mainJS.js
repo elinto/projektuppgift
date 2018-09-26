@@ -1,4 +1,17 @@
 $(document).ready(function () {
+
+  fetch('https://api.github.com/search/repositories?q=tetris')
+  .then(response => response.json())
+  .then(data => {
+    var repos = data.items;
+    
+    for(var i = 0; i < 3; i++){
+    	var repo = repos[i];
+    	alert(repo.name);
+    }
+    
+  });
+  
     $(".menuMobileIcon").click(function () {
         $(".menuContainer").show(200);
     });
@@ -71,23 +84,25 @@ function validering() {
     var validerad = true;
     
     if (!/^[a-ö]{3,10}$/i.test(fornamn)) {
-        alert('Vänligen skriv in ditt förnamn, minst 3 bokstäver!');
+      //  alert('Vänligen skriv in ditt förnamn, minst 3 bokstäver!');
         validerad = false;
     }
     if (!/^[a-ö]{3,10}$/i.test(efternamn)) {
-        alert('Vänligen skriv in ditt efternamn, minst 3 bokstäver!');
+       // alert('Vänligen skriv in ditt efternamn, minst 3 bokstäver!');
         validerad = false;
     }
     if (!/^[0-9]{5,12}$/i.test(telefon)) {
-        alert('Vänligen skriv in ditt telefonnummer!');
+       // alert('Vänligen skriv in ditt telefonnummer!');
         validerad = false;
     }
     if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
-        alert('Vänligen skriv in ditt meddelande!');
+       // alert('Vänligen skriv in ditt meddelande!');
         validerad = false;
     }
     return validerad;
 };
+
+// Här ligger koden för att få boxarna röda när man inte fyllt i rätt
 
 document.getElementById('fnamn').addEventListener("keyup", function(){
     $('#errorMessageFnamn').css('visibility', 'hidden');
@@ -102,6 +117,48 @@ document.getElementById('fnamn').addEventListener("keyup", function(){
     }
 
  })
+
+ document.getElementById('enamn').addEventListener("keyup", function(){
+  $('#errorMessageFnamn').css('visibility', 'hidden');
+  var efternamn = document.getElementById('enamn').value;
+  if (!/^[a-ö]{3,10}$/i.test(efternamn)) {
+      document.getElementById('enamn').style.borderColor = "red";
+      $('#errorMessageFnamn').css('visibility', 'show');
+      
+  } else {
+      document.getElementById('enamn').style.borderColor = "green";
+      $('#errorMessageFnamn').css('visibility', 'hidden');
+  }
+
+})
+
+document.getElementById('telnr').addEventListener("keyup", function(){
+  $('#errorMessageFnamn').css('visibility', 'hidden');
+  var telefon = document.getElementById('telnr').value;
+  if (!/^[0-9]{5,12}$/i.test(telefon)) {
+      document.getElementById('telnr').style.borderColor = "red";
+      $('#errorMessageFnamn').css('visibility', 'show');
+      
+  } else {
+      document.getElementById('telnr').style.borderColor = "green";
+      $('#errorMessageFnamn').css('visibility', 'hidden');
+  }
+
+})
+
+document.getElementById('med').addEventListener("keyup", function(){
+  $('#errorMessageFnamn').css('visibility', 'hidden');
+  var meddelande = document.getElementById('med').value;
+  if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
+      document.getElementById('med').style.borderColor = "red";
+      $('#errorMessageFnamn').css('visibility', 'show');
+      
+  } else {
+      document.getElementById('med').style.borderColor = "green";
+      $('#errorMessageFnamn').css('visibility', 'hidden');
+  }
+
+})
 
  
 
