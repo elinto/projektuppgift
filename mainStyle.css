@@ -156,7 +156,7 @@ a:hover {
     color: white;
 }
 
-#progressBar {
+.progressBar {
     width: 80%;
     background-color:#e7e7e7;
     border-radius: 30px;
@@ -304,7 +304,7 @@ a:hover {
     position: relative;
     left: 25%;
 }
-#beskrivning1{
+.beskrivning1{
     text-align: center;
     padding: 1em;
 }
