@@ -329,3 +329,8 @@ a:hover {
     color: #c62727;
     font-size: 12px;
 }
+
+#mapid { 
+height:50%;
+width:50%;
+}
