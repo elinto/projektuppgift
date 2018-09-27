@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  //Vilket språk det är 
   fetchGithub("javascript", "reposcontainer");
   fetchGithub("css", "cssRepos");
 
@@ -153,10 +153,11 @@ $(document).ready(function () {
 
     });
   }
-
+  $('#errorMessageMed').hide();
   var medTextbox = document.getElementById('med');
   if (medTextbox) {
     medTextbox.addEventListener("keyup", function () {
+      var meddelande = document.getElementById('med').value;
       $('#errorMessageFnamn').css('visibility', 'hidden');
       var meddelande = document.getElementById('med').value;
       if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
