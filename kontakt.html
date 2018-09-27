@@ -44,21 +44,23 @@
         Kontakt
 
         <form onsubmit="return validering();">
-            <br>Förnamn:<input id="fnamn" type="text" /> <br>
-            <div id="errorMessageFnamn">
+            <br>Förnamn:<input id="fnamn" type="text" placeholder="Skriv in förnamn..." /> <br>
+            <div id="errorMessageFnamn" class="errorMessageText">
                 Vänligen skriv in minst tre bokstäver
             </div>
-            <br>Efternamn:<input id="enamn" type="text" /><br>
+            <br>Efternamn:<input id="enamn" type="text" placeholder="Skriv in efternamn..." /><br>
             <div id="errorMessageEnamn">
                 Vänligen skriv in minst tre bokstäver
             </div>
             <br>Telenr:<input id="telnr" type="number" /><br>
             <div id="errorMessageTele">
-                Får endast innehålla siffror
+                Får endast innehålla siffror, minst 10 
             </div>
-            <br>Ditt meddelande:<textarea id="med" cols="30" rows="8"></textarea><br>
-            <br>Epost:<input id="epost" type="email" /><br>
-            <br><input type="submit" value="Skicka meddelande" /><br>
+            <p>Ditt meddelande:</p>
+            <textarea id="med" cols="30" rows="8" placeholder="Skriv ett meddelande..."></textarea><br>
+            <div id="errorMessageMed">Vänligen fyll i ett meddelande</div>
+            <br>Epost:<input id="epost" type="email" placeholder="Fyll i epost..."/><br>
+            <br><input type="submit" value="Skicka meddelande"/><br>
         </form>
     </div>
     <script src="mainJS.js"></script>

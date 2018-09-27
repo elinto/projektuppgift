@@ -112,6 +112,7 @@ $(document).ready(function () {
         $('#errorMessageFnamn').show();
       } else {
         $("#fnamn").removeClass("textboxerror");
+        $("#fnamn").addClass("textboxready"); // Vill att det ska bli grönt
         $('#errorMessageFnamn').hide();
       }
     });
@@ -128,6 +129,7 @@ $(document).ready(function () {
         $('#errorMessageEnamn').show();
       } else {
         $("#enamn").removeClass("textboxerror");
+        $("#enamn").addClass("textboxready");
         $('#errorMessageEnamn').hide();
       }
 
@@ -140,14 +142,15 @@ $(document).ready(function () {
   if (telnrTextbox) {
     telnrTextbox.addEventListener("keyup", function () {
        var telefon = document.getElementById('telnr').value;
-       var hasError = !/^[0-9]{5,12}$/i.test(telefon);
+       var hasError = !/^[0-9]{10,12}$/i.test(telefon);
 
       if (hasError) {
-        $('telnr').addClass("textboxerror");
+        $('#telnr').addClass("textboxerror");
         $('#errorMessageTele').show();
 
       } else {
         $("#telnr").removeClass("textboxerror");
+        $("#telnr").addClass("textboxready");
         $('#errorMessageTele').hide();
       }
 
@@ -158,15 +161,16 @@ $(document).ready(function () {
   if (medTextbox) {
     medTextbox.addEventListener("keyup", function () {
       var meddelande = document.getElementById('med').value;
-      $('#errorMessageFnamn').css('visibility', 'hidden');
-      var meddelande = document.getElementById('med').value;
-      if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
-        document.getElementById('med').style.borderColor = "red";
-        $('#errorMessageFnamn').css('visibility', 'show');
+      var hasError = !/^[a-ö0-9_\-]{1,100}$/i.test(meddelande)
+
+      if (hasError) {
+        $('#med').addClass("textboxerror");
+        $('#errorMessageMed').show();
 
       } else {
-        document.getElementById('med').style.borderColor = "green";
-        $('#errorMessageFnamn').css('visibility', 'hidden');
+        $("#med").removeClass("textboxerror");
+        $("#med").addClass("textboxready");
+        $('#errorMessageMed').hide();
       }
 
     });

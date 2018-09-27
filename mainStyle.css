@@ -310,9 +310,22 @@ a:hover {
 }
 
 .textboxerror {
-    outline: red auto 5px;
+    outline:#c62727 auto 5px;
 }
 
 .textboxerror:focus {
-    outline: red auto 5px;
+    outline:#c62727 auto 5px;
+}
+
+.textboxready {
+    outline:#5dcc6e auto 5px;
+}
+
+.textboxready:focus {
+    outline:#5dcc6e auto 5px;
+}
+
+.errorMessageText {
+    color: #c62727;
+    font-size: 12px;
 }
