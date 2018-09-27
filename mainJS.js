@@ -105,7 +105,7 @@ $(document).ready(function () {
   if (fornamnTextbox) {
     fornamnTextbox.addEventListener("keyup", function () {
       var fornamn = document.getElementById('fnamn').value;
-      var hasError = !/^[a-ö]{3,10}$/i.test(fornamn);
+      var hasError = !/^[a-ö]{3,100}$/i.test(fornamn);
 
       if (hasError) {
         $("#fnamn").addClass("textboxerror");
@@ -122,7 +122,7 @@ $(document).ready(function () {
   if (efternamnTextbox) {
     efternamnTextbox.addEventListener("keyup", function () {
       var efternamn = document.getElementById('enamn').value;
-      var hasError = !/^[a-ö]{3,10}$/i.test(efternamn);
+      var hasError = !/^[a-ö]{3,100}$/i.test(efternamn);
 
       if (hasError) {
         $("#enamn").addClass("textboxerror");
@@ -176,6 +176,26 @@ $(document).ready(function () {
     });
   }
 
+  $('#errorMessageEpost').hide();
+  var medTextbox = document.getElementById('epost');
+  if (medTextbox) {
+    medTextbox.addEventListener("keyup", function () {
+      var epost = document.getElementById('epost').value;
+      var hasError = !/\S+@\S+\.\S+/.test(epost)
+
+      if (hasError) {
+        $('#epost').addClass("textboxerror");
+        $('#errorMessageEpost').show();
+
+      } else {
+        $("#epost").removeClass("textboxerror");
+        $("#epost").addClass("textboxready");
+        $('#errorMessageEpost').hide();
+      }
+
+    });
+  }
+
 });
 
 function validering() {
@@ -184,18 +204,22 @@ function validering() {
   var efternamn = document.getElementById('enamn').value;
   var telefon = document.getElementById('telnr').value;
   var meddelande = document.getElementById('med').value;
+  var epost = document.getElementById('epost').value;
   var validerad = true;
 
-  if (!/^[a-ö]{3,10}$/i.test(fornamn)) {
+  if (!/^[a-ö]{3,100}$/i.test(fornamn)) {
     validerad = false;
   }
-  if (!/^[a-ö]{3,10}$/i.test(efternamn)) {
+  if (!/^[a-ö]{3,100}$/i.test(efternamn)) {
     validerad = false;
   }
-  if (!/^[0-9]{5,12}$/i.test(telefon)) {
+  if (!/^[0-9]{10,12}$/i.test(telefon)) {
     validerad = false;
   }
-  if (!/^[a-ö0-9_\-]{7,100}$/i.test(meddelande)) {
+  if (!/^[a-ö0-9_\-]{1,100}$/i.test(meddelande)) {
+    validerad = false;
+  }
+  if(!/\S+@\S+\.\S+/(epost)){
     validerad = false;
   }
 
