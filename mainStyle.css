@@ -23,7 +23,7 @@ a:hover {
 
 .headerImage {
     width: 100%;
-    height: 35%;
+    height: 150px;
     background: url("bilder/code.jpg") no-repeat center;
     background-size: cover;
     position: relative;
