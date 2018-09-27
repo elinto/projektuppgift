@@ -134,18 +134,21 @@ $(document).ready(function () {
     });
   }
   // Fortsätt ändra här
+
+  $('#errorMessageTele').hide();
   var telnrTextbox = document.getElementById('telnr');
   if (telnrTextbox) {
     telnrTextbox.addEventListener("keyup", function () {
-      $('#errorMessageFnamn').css('visibility', 'hidden');
-      var telefon = document.getElementById('telnr').value;
-      if (!/^[0-9]{5,12}$/i.test(telefon)) {
-        document.getElementById('telnr').style.borderColor = "red";
-        $('#errorMessageFnamn').css('visibility', 'show');
+       var telefon = document.getElementById('telnr').value;
+       var hasError = !/^[0-9]{5,12}$/i.test(telefon);
+
+      if (hasError) {
+        $('telnr').addClass("textboxerror");
+        $('#errorMessageTele').show();
 
       } else {
-        document.getElementById('telnr').style.borderColor = "green";
-        $('#errorMessageFnamn').css('visibility', 'hidden');
+        $("#telnr").removeClass("textboxerror");
+        $('#errorMessageTele').hide();
       }
 
     });
