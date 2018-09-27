@@ -5,43 +5,21 @@ $(document).ready(function () {
 
   function fetchGithub(lang, containerClass) {
 
-    var date = getEnVeckaSedan();
-
-    fetch('https://api.github.com/search/repositories?q=created:' + date + '+language:' + lang + '&sort=stars&order=desc')
+    fetch('https://github-trending-api.now.sh/repositories?language=' + lang + '&since=weekly')
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        var repos = data.items;
-
+      .then(jsondata => {
+        // console.log(jsondata)
         for (var i = 0; i < 5; i++) {
-          var repo = repos[i];
-          var starsText = " (" + repo.stargazers_count + " stars)";
-          var repoLink = "<a href='" + repo.html_url + "' target='_blank'>" + repo.name + "</a>";
-          var ownerLink = "<a href='" + repo.owner.html_url + "' target='_blank'>" + repo.owner.login + "</a>"
-          var radHtml = repoLink + starsText + " " + ownerLink;
+          var repo = jsondata[i];
 
-          $("." + containerClass).append("<p>" + radHtml + "</p>")
+          var name = "<a href='" + repo.url + "' target='_blank'>" + repo.name + "</a>";
+          var author = "<a href='https://github.com/" + repo.author + "' target='_blank'>" + repo.author + "</a>";
+          $("." + containerClass).append("<li>" + name + " av " + author + "(stars: " + repo.stars + ") </li>");
         }
+      })
 
-      });
   }
 
-  function getEnVeckaSedan() {
-    var enVeckaSedan = new Date();
-    enVeckaSedan.setDate(enVeckaSedan.getDate() - 7);
-
-    var månad = enVeckaSedan.getMonth() + 1;
-    if (månad < 10) {
-      månad = "0" + månad;
-    }
-
-    var dag = enVeckaSedan.getDate();
-    if(dag < 10){
-      dag = "0" + dag;
-    }
-
-    return enVeckaSedan.getFullYear() + "-" + månad + "-" + dag;
-  }
 
   $(".menuMobileIcon").click(function () {
     $(".menuContainer").show(200);
@@ -98,7 +76,6 @@ $(document).ready(function () {
     pauseknapp.addEventListener("click", toggleBildspel);
   }
 
-  // Här ligger koden för att få boxarna röda när man inte fyllt i rätt
 
   $('#errorMessageFnamn').hide();
   var fornamnTextbox = document.getElementById('fnamn');
@@ -110,9 +87,10 @@ $(document).ready(function () {
       if (hasError) {
         $("#fnamn").addClass("textboxerror");
         $('#errorMessageFnamn').show();
+        $("#fnamn").removeClass("textboxready");
       } else {
         $("#fnamn").removeClass("textboxerror");
-        $("#fnamn").addClass("textboxready"); // Vill att det ska bli grönt
+        $("#fnamn").addClass("textboxready");
         $('#errorMessageFnamn').hide();
       }
     });
@@ -127,6 +105,7 @@ $(document).ready(function () {
       if (hasError) {
         $("#enamn").addClass("textboxerror");
         $('#errorMessageEnamn').show();
+        $("#enamn").removeClass("textboxready");
       } else {
         $("#enamn").removeClass("textboxerror");
         $("#enamn").addClass("textboxready");
@@ -135,18 +114,18 @@ $(document).ready(function () {
 
     });
   }
-  // Fortsätt ändra här
 
   $('#errorMessageTele').hide();
   var telnrTextbox = document.getElementById('telnr');
   if (telnrTextbox) {
     telnrTextbox.addEventListener("keyup", function () {
-       var telefon = document.getElementById('telnr').value;
-       var hasError = !/^[0-9]{10,12}$/i.test(telefon);
+      var telefon = document.getElementById('telnr').value;
+      var hasError = !/^[0-9]{10,12}$/i.test(telefon);
 
       if (hasError) {
         $('#telnr').addClass("textboxerror");
         $('#errorMessageTele').show();
+        $("#telnr").removeClass("textboxready");
 
       } else {
         $("#telnr").removeClass("textboxerror");
@@ -166,6 +145,7 @@ $(document).ready(function () {
       if (hasError) {
         $('#med').addClass("textboxerror");
         $('#errorMessageMed').show();
+        $("#med").removeClass("textboxready");
 
       } else {
         $("#med").removeClass("textboxerror");
@@ -186,6 +166,7 @@ $(document).ready(function () {
       if (hasError) {
         $('#epost').addClass("textboxerror");
         $('#errorMessageEpost').show();
+        $("#epost").removeClass("textboxready");
 
       } else {
         $("#epost").removeClass("textboxerror");
@@ -200,30 +181,13 @@ $(document).ready(function () {
 
 function validering() {
 
-  var fornamn = document.getElementById('fnamn').value;
-  var efternamn = document.getElementById('enamn').value;
-  var telefon = document.getElementById('telnr').value;
-  var meddelande = document.getElementById('med').value;
-  var epost = document.getElementById('epost').value;
-  var validerad = true;
+  var fornamnValid = $("#fnamn").hasClass("textboxready");
+  var efternamnValid = $("#enamn").hasClass("textboxready");
+  var telnrValid = $("#telnr").hasClass("textboxready");
+  var meddelandeValid = $("#med").hasClass("textboxready");
+  var epostValid = $("#epost").hasClass("textboxready");
 
-  if (!/^[a-ö]{3,100}$/i.test(fornamn)) {
-    validerad = false;
-  }
-  if (!/^[a-ö]{3,100}$/i.test(efternamn)) {
-    validerad = false;
-  }
-  if (!/^[0-9]{10,12}$/i.test(telefon)) {
-    validerad = false;
-  }
-  if (!/^[a-ö0-9_\-]{1,100}$/i.test(meddelande)) {
-    validerad = false;
-  }
-  if(!/\S+@\S+\.\S+/(epost)){
-    validerad = false;
-  }
-
-  return validerad;
+  return fornamnValid && efternamnValid && telnrValid && meddelandeValid && epostValid;
 };
 
 
@@ -369,6 +333,7 @@ function progress9() {
   }
 };
 
+/*
 var mymap = L.map('mapid').setView([59.2552, 15.2482], 15);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 maxZoom: 18,
@@ -377,5 +342,6 @@ attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStree
 			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 id: 'mapbox.streets'
 }).addTo(mymap);
+*/
 
 
