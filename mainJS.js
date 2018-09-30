@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  //Vilket språk det är 
+
   fetchGithub("javascript", "reposcontainer");
   fetchGithub("css", "cssRepos");
 
@@ -8,13 +8,13 @@ $(document).ready(function () {
     fetch('https://github-trending-api.now.sh/repositories?language=' + lang + '&since=weekly')
       .then(response => response.json())
       .then(jsondata => {
-        // console.log(jsondata)
+        //console.log(jsondata)
         for (var i = 0; i < 5; i++) {
           var repo = jsondata[i];
 
           var name = "<a href='" + repo.url + "' target='_blank'>" + repo.name + "</a>";
           var author = "<a href='https://github.com/" + repo.author + "' target='_blank'>" + repo.author + "</a>";
-          $("." + containerClass).append("<li>" + name + " av " + author + "(stars: " + repo.stars + ") </li>");
+          $("." + containerClass).append("<li>" + name + " av " + author + "(stars: " + repo.currentPeriodStars + ") </li>");
         }
       })
 
@@ -176,15 +176,15 @@ $(document).ready(function () {
 
     });
   }
-
-  $("#susanneProfilBox").css("left", window.innerWidth + "px");
-  $("#alexandraProfilBox").css("left", window.innerWidth + "px");
-  $("#elinProfilBox").css("left", window.innerWidth + "px");
+// Sätter bilderna utanför skärmen till höger
+  $("#susanneProfilBox").css("left", screen.width + "px");
+  $("#alexandraProfilBox").css("left", screen.width + "px");
+  $("#elinProfilBox").css("left", screen.width + "px");
   var animeringHastighet = 500;
 
-  $("#susanneProfilBox").animate({ "left": "-=" + window.innerWidth + "px" }, animeringHastighet, function () {
-    $("#alexandraProfilBox").animate({ "left": "-=" + window.innerWidth + "px" }, animeringHastighet, function () {
-      $("#elinProfilBox").animate({ "left": "-=" + window.innerWidth + "px" }, animeringHastighet, function(){
+  $("#susanneProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function () {
+    $("#alexandraProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function () {
+      $("#elinProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function(){
         $("#susanneProfilBox").addClass('box_rotate box_transition');
         $("#alexandraProfilBox").addClass('box_rotate box_transition');
         $("#elinProfilBox").addClass('box_rotate box_transition');
@@ -348,15 +348,15 @@ function progress9() {
   }
 };
 
-if(window.L){
-  var mymap = L.map('mapid').setView([59.2552, 15.2482], 15);
+if(document.getElementById('kartaId')){
+  var minKarta = L.map('kartaId').setView([59.2552, 15.2482], 15);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
   maxZoom: 18,
   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
   id: 'mapbox.streets'
-  }).addTo(mymap);
+  }).addTo(minKarta);
   
 }
 
