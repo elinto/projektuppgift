@@ -163,27 +163,7 @@ a:hover {
     border-radius: 30px;
 }
 
-#BarJava {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarCss {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarHtml {
+.bar {
     height: 20px;
     background-color: rgb(132, 209, 125);
     text-align: center;
@@ -213,68 +193,6 @@ a:hover {
     width: 80%;
     background-color: #e7e7e7;
     border-radius: 30px;
-}
-
-/* Susannes kod */
-
-#BarJava2 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarCss2 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarHtml2 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarJava3 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarCss3 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
-}
-
-#BarHtml3 {
-    height: 20px;
-    background-color: rgb(132, 209, 125);
-    text-align: center;
-    line-height: 25px;
-    color: rgb(150, 147, 147);
-    border-radius: 30px;
-    font-weight: 900;
 }
 
 .textPortfolio {

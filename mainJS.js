@@ -208,145 +208,37 @@ function validering() {
 };
 
 
+function animeraProgress(procent, elementId){
+  var elem = document.getElementById(elementId);
+  if(elem){
+    var width = 10;
+    var id = setInterval(bars, 20); //tiden
+    function bars() {
+      if (width >= procent) {
+        clearInterval(id);
+      } else {
+        width++;
+        elem.style.width = width + '%';
+        elem.innerHTML = width * 1 + '%';
+      }
+    }
+  } 
+}
 //Alexanra:
-function progress() {
-  var elem = document.getElementById('BarJava');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 65) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
-function progress1() {
-  var elem = document.getElementById('BarHtml');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 95) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
-function progress2() {
-  var elem = document.getElementById('BarCss');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 75) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
+animeraProgress(65, "BarJava");
+animeraProgress(95, "BarHtml");
+animeraProgress(75, "BarCss");
 
 //Susannes koood
-function progress4() {
-  var elem = document.getElementById('BarJava2');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 75) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
+animeraProgress(75, "BarJava2");
+animeraProgress(95, "BarHtml2");
+animeraProgress(85, "BarCss2");
 
-function progress5() {
-  var elem = document.getElementById('BarHtml2');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 95) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
-function progress6() {
-  var elem = document.getElementById('BarCss2');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 85) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
 
 //Elin kod
-
-function progress7() {
-  var elem = document.getElementById('BarJava3');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 45) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
-function progress8() {
-  var elem = document.getElementById('BarHtml3');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 75) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
-
-function progress9() {
-  var elem = document.getElementById('BarCss3');
-  var width = 10;
-  var id = setInterval(bars, 20); //tiden
-  function bars() {
-    if (width >= 95) {
-      clearInterval(id);
-    } else {
-      width++;
-      elem.style.width = width + '%';
-      elem.innerHTML = width * 1 + '%';
-    }
-  }
-};
+animeraProgress(45, "BarJava3");
+animeraProgress(75, "BarHtml3");
+animeraProgress(95, "BarCss3");
 
 if(document.getElementById('kartaId')){
   var minKarta = L.map('kartaId').setView([59.2552, 15.2482], 15);
