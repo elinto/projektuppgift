@@ -1,4 +1,7 @@
 $(document).ready(function () {
+  // Här anropar vi funktionen fetchGithub två gånger för att inte behöva skriva koden två gånger.
+  // Första gången skickar vi in en parameter för att få ut för javascript och andra gången för css.
+  // Vi skickar även in en parameter för vilken klass koden sen ska skrivas ut i. 
 
   fetchGithub("javascript", "reposcontainer");
   fetchGithub("css", "cssRepos");
@@ -6,12 +9,13 @@ $(document).ready(function () {
   function fetchGithub(lang, containerClass) {
 
     fetch('https://github-trending-api.now.sh/repositories?language=' + lang + '&since=weekly')
-      .then(response => response.json())
+      .then(response => response.json()) //Gör om till json 
       .then(jsondata => {
-        //console.log(jsondata)
-        for (var i = 0; i < 5; i++) {
+        //console.log(jsondata) //För att se i vilket format datan kommer i.
+        for (var i = 0; i < 5; i++) { //Loopar 5 gånger
           var repo = jsondata[i];
-
+          // repo.url är för att hämta ut url datan på det objekt vi är på. 
+          // Länken öppnar en ny sida
           var name = "<a href='" + repo.url + "' target='_blank'>" + repo.name + "</a>";
           var author = "<a href='https://github.com/" + repo.author + "' target='_blank'>" + repo.author + "</a>";
           $("." + containerClass).append("<li>" + name + " av " + author + "(stars: " + repo.currentPeriodStars + ") </li>");
@@ -20,14 +24,15 @@ $(document).ready(function () {
 
   }
 
-
+// Visar menyn när man klickar på hamburgaren
   $(".menuMobileIcon").click(function () {
     $(".menuContainer").show(200);
   });
-
+//Tar bort menyn när man klickar på kryss
   $(".closeMenu").click(function () {
     $(".menuContainer").hide(200);
   });
+// Array för bildspel
   var bildSpel = [
     "bilder/musik.jpg",
     "bilder/bubbla.jpg",
@@ -35,7 +40,8 @@ $(document).ready(function () {
   ];
 
   var currentIndex = 0;
-
+// Hämtar arrayen och plussar på index med 1 och när
+// den är lika lång som arrayen så börjar den om på index 0.
   function visaBild() {
     var img = document.getElementById("bildSpel");
     if (img) {
@@ -47,18 +53,20 @@ $(document).ready(function () {
       }
     }
   }
+  // Anropar funktionen visaBild och sätter intervallet på 2 sek
   var bildspelIntervalId = null;
   startaBildspel();
   function startaBildspel() {
     visaBild();
     bildspelIntervalId = setInterval(visaBild, 2000);
   }
-
+// Stoppar bildspelet 
   function stopBildspel() {
     clearInterval(bildspelIntervalId);
     bildspelIntervalId = null;
   }
-
+// När intervallet körs visas pauseknapp.
+// När vi anropar stopBildspel byts knappen till play.
   function toggleBildspel() {
     var toggleKnapp = document.getElementById("pauseKnapp");
     if (bildspelIntervalId) {
@@ -70,13 +78,14 @@ $(document).ready(function () {
       toggleKnapp.setAttribute("src", "bilder/pause.png");
     }
   }
-
+// Lyssnar på klick och anropar toggleBildspel
   var pauseknapp = document.getElementById("pauseKnapp");
   if (pauseknapp) {
     pauseknapp.addEventListener("click", toggleBildspel);
   }
-
-
+// Lyssnar på keyup, hämtar värdet i textboxen.
+// variabeln hasError kollar om regex stämmer eller ej.
+// Gör att antingen bordern blir röd eller grön samt visar/gömmer felmeddelandet.
   $('#errorMessageFnamn').hide();
   var fornamnTextbox = document.getElementById('fnamn');
   if (fornamnTextbox) {
@@ -176,15 +185,16 @@ $(document).ready(function () {
 
     });
   }
-// Sätter bilderna utanför skärmen till höger
+  // Sätter bilderna utanför skärmen till höger
   $("#susanneProfilBox").css("left", screen.width + "px");
   $("#alexandraProfilBox").css("left", screen.width + "px");
   $("#elinProfilBox").css("left", screen.width + "px");
   var animeringHastighet = 500;
 
+  // Animerar med jQuery
   $("#susanneProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function () {
     $("#alexandraProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function () {
-      $("#elinProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function(){
+      $("#elinProfilBox").animate({ "left": "-=" + screen.width + "px" }, animeringHastighet, function () {
         $("#susanneProfilBox").addClass('box_rotate box_transition');
         $("#alexandraProfilBox").addClass('box_rotate box_transition');
         $("#elinProfilBox").addClass('box_rotate box_transition');
@@ -195,7 +205,7 @@ $(document).ready(function () {
 
 
 });
-
+// Anropas onsubmit på form för att se så att valideringen är okej
 function validering() {
 
   var fornamnValid = $("#fnamn").hasClass("textboxready");
@@ -207,10 +217,10 @@ function validering() {
   return fornamnValid && efternamnValid && telnrValid && meddelandeValid && epostValid;
 };
 
-
-function animeraProgress(procent, elementId){
+// Animerar proressbar, tar emot två parametrar i form av tid ovh vilket id.
+function animeraProgress(procent, elementId) {
   var elem = document.getElementById(elementId);
-  if(elem){
+  if (elem) {
     var width = 10;
     var id = setInterval(bars, 20); //tiden
     function bars() {
@@ -222,7 +232,7 @@ function animeraProgress(procent, elementId){
         elem.innerHTML = width * 1 + '%';
       }
     }
-  } 
+  }
 }
 //Alexanra:
 animeraProgress(65, "BarJava");
@@ -240,15 +250,16 @@ animeraProgress(45, "BarJava3");
 animeraProgress(75, "BarHtml3");
 animeraProgress(95, "BarCss3");
 
-if(document.getElementById('kartaId')){
+//Lägger in en kartvy på kontaktsidan
+if (document.getElementById('kartaId')) {
   var minKarta = L.map('kartaId').setView([59.2552, 15.2482], 15);
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-  maxZoom: 18,
-  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  id: 'mapbox.streets'
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+      '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox.streets'
   }).addTo(minKarta);
-  
+
 }
 
