@@ -1,7 +1,7 @@
 $(document).ready(function () {
   // Här anropar vi funktionen fetchGithub två gånger för att inte behöva skriva koden två gånger.
   // Första gången skickar vi in en parameter för att få ut för javascript och andra gången för css.
-  // Vi skickar även in en parameter för vilken klass koden sen ska skrivas ut i. 
+  // Vi skickar även in en parameter för vilket element koden sen ska skrivas ut i. 
 
   fetchGithub("javascript", "reposcontainer");
   fetchGithub("css", "cssRepos");
@@ -217,11 +217,12 @@ function validering() {
   return fornamnValid && efternamnValid && telnrValid && meddelandeValid && epostValid;
 };
 
-// Animerar proressbar, tar emot två parametrar i form av tid ovh vilket id.
+// Animerar proressbar, tar emot två parametrar i form av antal procent
+// som ska stå när animeringen är klar och id:t på elementet vi vill animera.
 function animeraProgress(procent, elementId) {
   var elem = document.getElementById(elementId);
   if (elem) {
-    var width = 10;
+    var width = 10; //Börjar räkna på 10 för att det ska gå snabbare
     var id = setInterval(bars, 20); //tiden
     function bars() {
       if (width >= procent) {
